@@ -3,12 +3,8 @@
 <br>
 <a href="https://github.com/HeZongyao">Zongyao He</a><sup><span>1</span></sup>, 
 <a href="https://ise.sysu.edu.cn/teacher/teacher02/1384977.htm">Zhi Jin</a><sup><span>1,Corresponding author</span></sup>
-</br>
-  
-<br>
-<sup>1</sup> SUN YAT-SEN University
-</br>
 
+<sup>1</sup> SUN YAT-SEN University
 <br>
 <div>
 
@@ -32,17 +28,31 @@
 
 This repository contains the official PyTorch implementation for the CVPR 2024 paper titled "Latent Modulated Function for Computational Optimal Continuous Image Representation" by Zongyao He and Zhi Jin.
 
-![Efficiency comparison](assets/efficiency.png " Efficiency comparisons (320 × 180 input) for ASSR")
+<div align="center">
+  <img src="assets/efficiency.png" alt="Efficiency comparison" width="50%" />
+  <br>
 
-![Framework](assets/framework.png "Framework of our LMF-based continuous image representation")
+  Efficiency comparisons (320 × 180 input) for ASSR
+</div>
+
+<div align="center">
+  <img src="assets/framework.png" alt="Framework" />
+  <br>
+
+  Framework of our LMF-based continuous image representation
+</div>
 
 ## Abstract
 
-The recent work Local Implicit Image Function (LIIF) and subsequent Implicit Neural Representation (INR) based works have achieved remarkable success in Arbitrary-Scale Super-Resolution (ASSR) by using MLP to decode Low-Resolution (LR) features. However, these continuous image representations typically implement decoding in High-Resolution (HR) High-Dimensional (HD) space, leading to a quadratic increase in computational cost and seriously hindering the practical applications of ASSR. To tackle this problem, we propose a novel Latent Modulated Function (LMF), which decouples the HR-HD decoding process into shared latent decoding in LR-HD space and independent rendering in HR Low-Dimensional (LD) space, thereby realizing the first computational optimal paradigm of continuous image representation. Specifically, LMF utilizes an HD MLP in latent space to generate latent modulations of each LR feature vector. This enables a modulated LD MLP in render space to quickly adapt to any input feature vector and perform rendering at arbitrary resolution. Furthermore, we leverage the positive correlation between modulation intensity and input image complexity to design a Controllable Multi-Scale Rendering (CMSR) algorithm, offering the flexibility to adjust the decoding efficiency based on the rendering precision. Extensive experiments demonstrate that converting existing INR-based ASSR methods to LMF can reduce the computational cost by up to 99.9%, accelerate inference by up to 57×, and save up to 76% of parameters, while maintaining competitive performance.
+The recent work Local Implicit Image Function (LIIF) and subsequent Implicit Neural Representation (INR) based works have achieved remarkable success in Arbitrary-Scale Super-Resolution (ASSR) by using MLP to decode Low-Resolution (LR) features. However, these continuous image representations typically implement decoding in High-Resolution (HR) High-Dimensional (HD) space, leading to a quadratic increase in computational cost and seriously hindering the practical applications of ASSR. 
+
+To tackle this problem, we propose a novel Latent Modulated Function (LMF), which decouples the HR-HD decoding process into shared latent decoding in LR-HD space and independent rendering in HR Low-Dimensional (LD) space, thereby realizing the first computational optimal paradigm of continuous image representation. Specifically, LMF utilizes an HD MLP in latent space to generate latent modulations of each LR feature vector. This enables a modulated LD MLP in render space to quickly adapt to any input feature vector and perform rendering at arbitrary resolution. Furthermore, we leverage the positive correlation between modulation intensity and input image complexity to design a Controllable Multi-Scale Rendering (CMSR) algorithm, offering the flexibility to adjust the decoding efficiency based on the rendering precision.
+
+Extensive experiments demonstrate that converting existing INR-based ASSR methods to LMF can reduce the computational cost by up to 99.9%, accelerate inference by up to 57×, and save up to 76% of parameters, while maintaining competitive performance.
 
 ## Acknowledgement
 
-This work was supported by Frontier Vision Lab, SUN YAT-SEN University.
+This work was supported by [Frontier Vision Lab](https://fvl2020.github.io/fvl.github.com/), SUN YAT-SEN University.
 
 Special acknowledgment goes to the following projects: [LIIF](https://github.com/yinboc/liif), [LTE](https://github.com/jaewon-lee-b/lte), [CiaoSR](https://github.com/caojiezhang/CiaoSR), and [DIIF](https://github.com/HeZongyao/DIIF).
 
