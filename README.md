@@ -9,7 +9,7 @@
 <div>
 
 [![project page](https://img.shields.io/badge/Project-Page-green)](https://github.com/HeZongyao/LMF)
-[![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)]()
+[![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2404.16451)
 [![poster](https://img.shields.io/badge/Conference-Poster-blueviolet)](https://cvpr.thecvf.com/virtual/2024/poster/31265)
 [![license](https://img.shields.io/badge/License-Apache_2.0-blue)](https://opensource.org/licenses/Apache-2.0)
 
@@ -18,15 +18,14 @@
 
 ## TODO
 
+- [x] Release the paper on [ArXiv](https://arxiv.org/abs/2404.16451).
 - [ ] Release the code for Latent Modulated Function (LMF).
-- [ ] Release the paper on ArXiv.
-- [ ] Provide detailed documentation and usage examples.
 - [ ] Include pre-trained models and evaluation results.
-- [ ] Add additional features and improvements.
+- [ ] Provide detailed documentation and usage examples.
 
 ## Introduction
 
-This repository contains the official PyTorch implementation for the CVPR 2024 paper titled "Latent Modulated Function for Computational Optimal Continuous Image Representation" by Zongyao He and Zhi Jin.
+This repository contains the official PyTorch implementation for the CVPR 2024 Highlight paper titled "Latent Modulated Function for Computational Optimal Continuous Image Representation" by Zongyao He and Zhi Jin.
 
 <div align="center">
   <img src="assets/efficiency.png" alt="Efficiency comparison" width="50%" />
