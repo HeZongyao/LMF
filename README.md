@@ -35,7 +35,6 @@ This repository contains the official PyTorch implementation for the CVPR 2024 H
   Framework of our LMF-based continuous image representation
 </div>
 
----
 
 ## Abstract
 
@@ -45,10 +44,6 @@ To tackle this problem, we propose a novel Latent Modulated Function (LMF), whic
 
 Extensive experiments demonstrate that converting existing INR-based ASSR methods to LMF can reduce the computational cost by up to **99.9%**, accelerate inference by up to **57×**, and save up to **76%** of parameters, while maintaining competitive performance.
 
-Your README snippet looks pretty solid already, but to enhance clarity and usability, you could consider the following improvements. These suggestions aim to provide clearer instructions, better structure, and additional helpful details to ensure that users can navigate your repository more effectively:
-
----
-
 
 ## Requirements
 Ensure your environment meets the following prerequisites:
@@ -57,7 +52,6 @@ Ensure your environment meets the following prerequisites:
 
 - **PyTorch**:  >= 1.9.1
 
----
 
 ## Quick Start
 ### 1. Download Pre-trained Models：
@@ -79,10 +73,11 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
   python demo.py --input demo.png --scale 4 --output demo_x4.png --model save/pretrained_models/edsr-b_lm-liif.pth --gpu 0 --fast True
   ```
 
-- **Test on a testset**:
+- **Test on a Testset**:
   ```bash
   python test.py --config configs/test-lmf/test-set5.yaml --model save/pretrained_models/edsr-b_lm-liif.pth --gpu 0 --fast True
   ```
+
 
 ## Training & Testing
 
@@ -107,7 +102,7 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
 
 - **Evaluate with CMSR**:
   - **Generate Scale2Mod Table**:
-    Multiple commands are provided for initializing CMSR at various scales. Here's an example for scale x2:
+    Multiple commands are needed for initializing CMSR at various scales. Here's an example for scale x2:
     ```bash
     python init_cmsr.py --config configs/cmsr/init-div2k-x2.yaml --model edsr-b_lm-llif.pth --gpu 0 --mse_threshold 0.00002 --save_path configs/cmsr/result/edsr-b_lm-llif_2e-5.yaml
     ```
@@ -117,7 +112,7 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
     ```bash
     python test.py --config configs/test-lmf/test-div2k-x8.yaml --model edsr-b_lm-llif.pth --gpu 0 --fast True --cmsr True --cmsr_mse 0.00002 --cmsr_path configs/cmsr/result/edsr-b_lm-llif_2e-5.yaml
     ```
----
+
 
 ## TODO
 
@@ -125,7 +120,6 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
 - [x] Release the code for Latent Modulated Function (LMF).
 - [ ] Release more pre-trained models and evaluation results.
 
----
 
 ## Acknowledgement
 
@@ -133,7 +127,6 @@ This work was supported by [Frontier Vision Lab](https://fvl2020.github.io/fvl.g
 
 Special acknowledgment goes to the following projects: [LIIF](https://github.com/yinboc/liif), [LTE](https://github.com/jaewon-lee-b/lte), [CiaoSR](https://github.com/caojiezhang/CiaoSR), and [DIIF](https://github.com/HeZongyao/DIIF).
 
----
 
 ## Citation
 
