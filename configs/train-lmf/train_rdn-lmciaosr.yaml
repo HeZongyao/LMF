@@ -1,0 +1,91 @@
+train_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: ./load/DIV2K800/DIV2K_train_HR
+      repeat: 20
+      cache: in_memory
+  wrapper:
+    name: sr-implicit-downsampled
+    args:
+      inp_size: 64
+      scale_max: 4
+      augment: true
+      sample_q: 4096
+  batch_size: 16
+
+val_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: ../datasets/DIV2K100/DIV2K100_crop_HR
+      first_k: 10
+      repeat: 160
+      cache: in_memory
+  wrapper:
+    name: sr-implicit-downsampled
+    args:
+      inp_size: 64
+      scale_max: 4
+      sample_q: 4096
+  batch_size: 16
+
+data_norm:
+  inp: {sub: [0.5], div: [0.5]}
+  gt: {sub: [0.5], div: [0.5]}
+
+model:
+  name: lmciaosr
+  args:
+    encoder:
+      name: rdn
+      args:
+        no_upsampling: true
+    prenet_q:
+      name: mlp
+      args:
+        out_dim: 256
+        hidden_list: [ 256 ]
+    hypernet_q:
+      name: mlp
+      args:
+        out_dim: 288
+        hidden_list: [ 288 ]
+    imnet_q:
+      name: lmmlp
+      args:
+        out_dim: 3
+        hidden_dim: 16
+        hidden_depth: 8
+        mod_scale: True
+        mod_shift: True
+    imnet_k:
+      name: mlp
+      args:
+        out_dim: 256
+        hidden_list: [ 256 ]
+    imnet_v:
+      name: mlp
+      args:
+        out_dim: 256
+        hidden_list: [ 256 ]
+    local_size: 2
+    feat_unfold: true
+    non_local_attn: true
+    multi_scale: [2]
+    softmax_scale: 1
+    mod_input: true
+
+optimizer:
+  name: adam
+  args:
+    lr: 1.e-4
+epoch_max: 1200
+multi_step_lr:
+  milestones: [200, 400, 600, 800, 1000]
+  gamma: 0.5
+
+epoch_val: 1
+epoch_save: 50
+
+resume: ./save/epoch-last.pth

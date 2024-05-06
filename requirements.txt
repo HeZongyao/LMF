@@ -1,0 +1,9 @@
+torch>=1.9.1
+numpy>=1.19
+tensorboardX>=2.1
+pyyaml>=5.3
+tqdm>=4.46
+torchvision>=0.9
+Pillow>=8.0
+imageio>=2.9
+timm>=0.3.2
