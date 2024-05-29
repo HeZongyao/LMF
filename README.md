@@ -104,13 +104,13 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
   - **Generate Scale2Mod Table**:
     Multiple commands are needed for initializing CMSR at various scales. Here's an example for scale x2:
     ```bash
-    python init_cmsr.py --config configs/cmsr/init-div2k-x2.yaml --model edsr-b_lm-llif.pth --gpu 0 --mse_threshold 0.00002 --save_path configs/cmsr/result/edsr-b_lm-llif_2e-5.yaml
+    python init_cmsr.py --config configs/cmsr/init-div2k-x2.yaml --model edsr-b_lm-liif.pth --gpu 0 --mse_threshold 0.00002 --save_path configs/cmsr/result/edsr-b_lm-liif_2e-5.yaml
     ```
     Repeat the above command with different scales as needed. Usually scales x2, x3, x4, x6, x12, x18 are dense enough for ASSR. 
 
   - **Evaluate with CMSR Enabled**:
     ```bash
-    python test.py --config configs/test-lmf/test-div2k-x8.yaml --model edsr-b_lm-llif.pth --gpu 0 --fast True --cmsr True --cmsr_mse 0.00002 --cmsr_path configs/cmsr/result/edsr-b_lm-llif_2e-5.yaml
+    python test.py --config configs/test-lmf/test-div2k-x8.yaml --model edsr-b_lm-liif.pth --gpu 0 --fast True --cmsr True --cmsr_mse 0.00002 --cmsr_path configs/cmsr/result/edsr-b_lm-liif_2e-5.yaml
     ```
 
 
