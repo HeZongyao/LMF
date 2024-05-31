@@ -47,7 +47,8 @@ if __name__ == '__main__':
 
     model_spec = torch.load(args.model)['model']
     model_spec["args"]["cmsr_spec"] = cmsr_spec
-    model = models.make(model_spec, load_sd = True).cuda()
+    model = models.make(model_spec, load_sd=True).cuda()
+    model.eval()
     
     img = transforms.ToTensor()(Image.open(args.input).convert('RGB'))
 
