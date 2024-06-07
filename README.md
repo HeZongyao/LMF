@@ -56,7 +56,7 @@ Ensure your environment meets the following prerequisites:
 ## Quick Start
 ### 1. Download Pre-trained Models：
 - **Pre-existing Models**: We provide LM-LIIF (EDSR-b) and LM-LTE (EDSR-b) models in the `./save/pretrained_models` folder.
-- **Additional Models**: Download more pre-trained models from [this link (coming soon)]().
+- **Additional Models**: Download more pre-trained models from [this google drive link](https://drive.google.com/drive/folders/115AUj4Axh0VBmmozwxRIWqrNR5ZdWzd4?usp=drive_link).
 - **Original Method Models**: You can download the pre-trained models of the original methods in their repos ( [LIIF](https://github.com/yinboc/liif), [LTE](https://github.com/jaewon-lee-b/lte), [CiaoSR](https://github.com/caojiezhang/CiaoSR)).
 
 ### 2. Download Benchmark Datasets:
@@ -118,7 +118,7 @@ Download the benchmark datasets from [EDSR-PyTorch Repository](https://github.co
 
 - [x] Release the paper on [ArXiv](https://arxiv.org/abs/2404.16451).
 - [x] Release the code for Latent Modulated Function (LMF).
-- [ ] Release more pre-trained models and evaluation results.
+- [x] Release more pre-trained models and evaluation results.
 
 
 ## Acknowledgement
