@@ -70,7 +70,6 @@ model:
         out_dim: 256
         hidden_list: [ 256 ]
     local_size: 2
-    mixed_le: true
     feat_unfold: true
     non_local_attn: true
     multi_scale: [2]

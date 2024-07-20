@@ -171,7 +171,7 @@ if __name__ == '__main__':
     parser.add_argument('--model')
     parser.add_argument('--window', default='0')
     parser.add_argument('--scale_max', default='4')
-    parser.add_argument('--fast', default=False)  # Set fast to True for LMF
+    parser.add_argument('--fast', default=True)  # Set fast to True for LMF, False for original LIIF/LTE/CiaoSR
     parser.add_argument('--gpu', default='0')
     parser.add_argument('--cmsr', default=False)
     parser.add_argument('--cmsr_mse', default=0.00002)

@@ -18,12 +18,13 @@ if __name__ == '__main__':
     parser.add_argument('--scale')
     parser.add_argument('--output', default='output.png')
     parser.add_argument('--gpu', default='0')
-    parser.add_argument('--fast', default=False)  # Set fast to True for LMF
+    parser.add_argument('--fast', default=True)  # Set fast to True for LMF, False for original LIIF/LTE/CiaoSR
     parser.add_argument('--cmsr', default=False)
     parser.add_argument('--cmsr_mse', default=0.00002)
     parser.add_argument('--cmsr_path')
     args = parser.parse_args()
 
+    DEVICE = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
 
     # Maximum scale factor during training
@@ -47,15 +48,15 @@ if __name__ == '__main__':
 
     model_spec = torch.load(args.model)['model']
     model_spec["args"]["cmsr_spec"] = cmsr_spec
-    model = models.make(model_spec, load_sd=True).cuda()
+    model = models.make(model_spec, load_sd=True).to(DEVICE)
     model.eval()
     
-    img = transforms.ToTensor()(Image.open(args.input).convert('RGB'))
+    img = transforms.ToTensor()(Image.open(args.input).convert('RGB')).to(DEVICE)
 
     h = int(img.shape[-2] * int(args.scale))
     w = int(img.shape[-1] * int(args.scale))
     scale = h / img.shape[-2]
-    coord = make_coord((h, w)).cuda()
+    coord = make_coord((h, w)).to(DEVICE)
     cell = torch.ones_like(coord)
     cell[:, 0] *= 2 / h
     cell[:, 1] *= 2 / w
@@ -63,10 +64,10 @@ if __name__ == '__main__':
     cell_factor = max(scale/scale_max, 1)
     if args.fast:
         with torch.no_grad():
-            pred = model(((img - 0.5) / 0.5).cuda().unsqueeze(0),
+            pred = model(((img - 0.5) / 0.5).unsqueeze(0),
                          coord.unsqueeze(0), cell_factor * cell.unsqueeze(0))[0]
     else:
-        pred = batched_predict(model, ((img - 0.5) / 0.5).cuda().unsqueeze(0),
+        pred = batched_predict(model, ((img - 0.5) / 0.5).unsqueeze(0),
                                coord.unsqueeze(0), cell_factor * cell.unsqueeze(0), bsize=30000)[0]
 
     pred = (pred * 0.5 + 0.5).clamp(0, 1).view(h, w, 3).permute(2, 0, 1).cpu()

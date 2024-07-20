@@ -55,7 +55,6 @@ model:
         out_dim: 208
         hidden_list: [ 208 ]
     local_ensemble: True
-    mixed_le: True
     feat_unfold: True
     cell_decode: True
     mod_input: True

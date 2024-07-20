@@ -10,7 +10,7 @@
 
 [![project page](https://img.shields.io/badge/Project-Page-green)](https://github.com/HeZongyao/LMF)
 [![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2404.16451)
-[![poster](https://img.shields.io/badge/Conference-Poster-blueviolet)](https://cvpr.thecvf.com/virtual/2024/poster/31265)
+[![conference paper](https://img.shields.io/badge/Conference-Paper-blueviolet)](https://openaccess.thecvf.com/content/CVPR2024/html/He_Latent_Modulated_Function_for_Computational_Optimal_Continuous_Image_Representation_CVPR_2024_paper.html)
 [![license](https://img.shields.io/badge/License-Apache_2.0-blue)](https://opensource.org/licenses/Apache-2.0)
 
 </div>
@@ -133,11 +133,13 @@ Special acknowledgment goes to the following projects: [LIIF](https://github.com
 If you find this work helpful, please consider citing:
 
 ```
-@inproceedings{he2024latent,
-  title={Latent Modulated Function for Computational Optimal Continuous Image Representation},
-  author={He, Zongyao and Jin, Zhi},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2024}
+@InProceedings{He_2024_CVPR,
+    author={He, Zongyao and Jin, Zhi},
+    title={Latent Modulated Function for Computational Optimal Continuous Image Representation},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month={June},
+    year={2024},
+    pages={26026-26035}
 }
 ```
 

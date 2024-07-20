@@ -56,7 +56,6 @@ model:
         hidden_list: [ 288 ]
     hidden_dim: 128
     local_ensemble: true
-    mixed_le: true
     cell_decode: true
     mod_input: true
 
